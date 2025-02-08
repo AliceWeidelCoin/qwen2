@@ -14,7 +14,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: url(images/hintergrund.jpg) no-repeat center center/cover; /* Pfad zu deinem Screenshot */
+    background: url('images/hintergrund.jpg') no-repeat center center/cover; /* Pfad zu deinem Screenshot */
     height: 100vh; /* Vollbildhöhe */
     display: flex;
     justify-content: center;
