@@ -12,49 +12,9 @@ body {
     overflow: hidden; /* Verhindert Scrollbalken während des Ladeeffekts */
 }
 
-/* Hero Section */
-.hero {
-    background: url('bild.jpg') no-repeat center center/cover; /* Pfad zu deinem Screenshot */
-    height: 100vh; /* Vollbildhöhe */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    opacity: 0; /* Initial unsichtbar */
-    transition: opacity 2s ease-in-out; /* Smooth Fade-In */
-}
-
-.loaded .hero {
-    opacity: 1; /* Nach dem Laden sichtbar */
-}
-
-.overlay {
-    background: rgba(0, 0, 0, 0.5); /* Halbtransparentes Overlay */
-    color: white;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%; /* Breite des Overlays */
-    max-width: 800px; /* Maximale Breite */
-    padding: 2rem; /* Innerer Abstand */
-}
-
-.hero h1 {
-    font-size: 4.5rem; /* Große Schriftgröße (ca. 72px) */
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.75rem; /* Mittlere Schriftgröße (ca. 28px) */
-    line-height: 1.4;
-}
-
-/* Header-Stil */
+/* Header transparent */
 header {
-    background-color: rgba(0, 0, 0, 0.7); /* Dunkel mit Transparenz */
+    background: transparent; /* Komplett transparent */
     color: white;
     padding: 1rem 0;
     position: fixed; /* Header bleibt oben beim Scrollen */
@@ -92,6 +52,59 @@ nav ul li a {
 
 nav ul li a:hover {
     text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 50vh; /* Höhe reduziert */
+    width: 50%; /* Breite reduziert */
+    right: 10%; /* Weiters nach rechts positioniert */
+    top: 25%; /* Vertikal versetzt */
+    opacity: 0; /* Initial unsichtbar */
+    transition: opacity 2s ease-in-out; /* Smooth Fade-In */
+}
+
+.loaded .hero {
+    opacity: 1; /* Nach dem Laden sichtbar */
+}
+
+/* Hintergrundbild bleibt groß */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Deckt den gesamten Hero-Bereich ab */
+    height: 100%;
+    background: url('bild.jpg') no-repeat center center/cover;
+    z-index: -1; /* Hinter dem Overlay */
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.5); /* Halbtransparentes Overlay */
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Action-Buttons */
+.action-button {
+    display: inline-block;
+    background-color: #FF0000; /* Rot */
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #CC0000; /* Dunkleres Rot beim Hover */
 }
 
 /* Footer */
